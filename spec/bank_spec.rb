@@ -5,6 +5,9 @@ describe Bank do
     expect(subject).to respond_to :make_deposit
   end
   it 'responds to method #balance' do
-    expect(subject).to respond_to :balance 
+    expect(subject).to respond_to :balance
+  end
+  it 'shows the balance of the account'
+    expect(subject.balance).to eq 0
   end
 end
