@@ -33,3 +33,7 @@ I can make a deposit.
 As a client of a BANK,
 so that I could know when I made an operation,
 I record a date of the operation.
+
+As a client of BANK,
+so that I could know how much money I have in the BANK,
+I check the balance of the account.
