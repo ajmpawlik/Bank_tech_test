@@ -29,3 +29,7 @@ __Then__ she would see:
 As a client of a BANK,
 so that I could store my money on the basic account,
 I can make a deposit.  
+
+As a client of a BANK,
+so that I could know when I made an operation,
+I record a date of the operation.
