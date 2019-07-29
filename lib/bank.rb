@@ -3,6 +3,7 @@ class Bank
   def initialize
     @balance = 0
   end
-  def make_deposit
+  def make_deposit(amount_deposited)
+    
   end
 end
