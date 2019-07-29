@@ -12,6 +12,11 @@ describe Bank do
       expect(subject.balance).to eq(300)
     end
   end
+  describe 'make_withdrawal' do
+    it 'responds to method #make_withdrawal' do
+      expect(subject).to respond_to(:make_withdrawal).with(1).argument
+    end
+  end
   describe '#balance' do
     it 'responds to method #balance' do
       expect(subject).to respond_to :balance
