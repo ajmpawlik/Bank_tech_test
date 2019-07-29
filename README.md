@@ -27,5 +27,5 @@ __Then__ she would see:
 ### User stories
 
 As a client of a BANK,
-so that I could store my money on my basic account,
+so that I could store my money on the basic account,
 I can make a deposit.  
