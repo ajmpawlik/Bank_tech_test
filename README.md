@@ -23,3 +23,9 @@ __When__ she prints her bank statement
 __Then__ she would see:
 
 ![this](acceptance.png)
+
+### User stories
+
+As a client of a BANK,
+so that I could store my money on my basic account,
+I can make a deposit.  
