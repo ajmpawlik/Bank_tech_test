@@ -6,8 +6,6 @@ describe Bank do
       expect(subject).to respond_to(:make_deposit).with(1).argument
     end
     it 'adds the deposited amount to the balance' do
-      bank = Bank.new
-      initial_balance = bank.balance
       expect(subject.make_deposit(100)).to eq(100)
     end
   end
