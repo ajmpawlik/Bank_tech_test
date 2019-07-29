@@ -34,4 +34,9 @@ describe Bank do
       expect(subject.balance).to eq initial_balance
     end
   end
+  describe '#account' do
+    it 'responds to method #account' do
+      expect(subject).to respond_to :account
+    end
+  end
 end
