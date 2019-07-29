@@ -8,7 +8,8 @@ describe Bank do
     it 'adds the deposited amount to the balance' do
       bank = Bank.new
       subject.make_deposit(100)
-      expect(subject.balance).to eq(100)
+      subject.make_deposit(200)
+      expect(subject.balance).to eq(300)
     end
   end
   describe '#balance' do
