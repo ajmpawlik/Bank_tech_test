@@ -16,6 +16,13 @@ describe Bank do
     it 'responds to method #make_withdrawal' do
       expect(subject).to respond_to(:make_withdrawal).with(1).argument
     end
+    it 'deducts the withdrawn amount from the balance' do
+      bank = Bank.new
+      subject.make_deposit(100)
+      subject.make_deposit(200)
+      subject.make_withdrawal(50)
+      expect(subject.balance).to eq(250)
+    end
   end
   describe '#balance' do
     it 'responds to method #balance' do

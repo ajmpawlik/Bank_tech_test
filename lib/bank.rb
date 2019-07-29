@@ -9,6 +9,6 @@ class Bank
   end
 
   def make_withdrawal(amount_withdrawed)
-    @balance = @balance - amount_withdrawed
+  
   end
 end
