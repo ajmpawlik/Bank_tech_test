@@ -51,11 +51,15 @@ describe Bank do
   end
   describe '#print_statement' do
     it 'responds to method print_statement' do
-     expect(subject).to respond_to :print_statement
+      expect(subject).to respond_to :print_statement
     end
     it 'prints a bank statement' do
-    bank = Bank.new
-    expect(bank.print_statement).to eq (100)
+      bank = Bank.new
+      expect(bank.print_statement).to eq (100)
+    end
+    it 'prints the header of bank statement' do
+      bank = Bank.new
+      expect(bank.print_header).to eq("date || credit || debit || balance")
     end
   end
 end
