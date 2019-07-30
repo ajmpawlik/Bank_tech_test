@@ -8,6 +8,7 @@ class Bank
 
   def make_deposit(amount_deposited)
     @balance = @balance + amount_deposited
+    @transaction = Hash.new 
     @transaction["deposit"] = amount_deposited
     @transaction["balance"] = @balance
     @account.push(@transaction)

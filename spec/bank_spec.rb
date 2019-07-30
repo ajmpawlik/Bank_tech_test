@@ -7,9 +7,9 @@ describe Bank do
     end
     it 'adds the deposited amount to the balance' do
       bank = Bank.new
-      subject.make_deposit(100)
-      subject.make_deposit(200)
-      expect(subject.balance).to eq(300)
+      bank.make_deposit(100)
+      expect(bank.make_deposit(200)).to eq([{"deposit"=>100, "balance"=>100}, {"deposit"=>200, "balance"=>300}])
+      expect(bank.balance).to eq(300)
     end
   end
   describe 'make_withdrawal' do
@@ -38,7 +38,7 @@ describe Bank do
     it 'responds to method #account' do
       expect(subject).to respond_to :account
     end
-    it 'shows the account' do
+    it 'shows the account after the deposit has been made' do
       bank = Bank.new
       bank.make_deposit(100)
       expect(bank.account).to eq([{"deposit"=>100, "balance"=>100}])
