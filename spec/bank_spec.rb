@@ -39,12 +39,14 @@ describe Bank do
       expect(subject).to respond_to :account
     end
     it 'shows the account' do
-      expect(subject.account).to eq([{"balance" => 100}])
+      bank = Bank.new
+      bank.make_deposit(100)
+      expect(bank.account).to eq([{"deposit"=>100, "balance"=>100}])
     end
   end
   describe '#transaction' do
     it 'responds to the method #transaction' do
-      expect(subject).to respond_to :transaction  
+      expect(subject).to respond_to :transaction
     end
   end
 end

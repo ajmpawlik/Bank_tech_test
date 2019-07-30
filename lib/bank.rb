@@ -8,8 +8,9 @@ class Bank
 
   def make_deposit(amount_deposited)
     @balance = @balance + amount_deposited
-    @account.push(@transaction[:deposit] = amount_deposited)
-    p @account
+    @transaction["deposit"] = amount_deposited
+    @transaction["balance"] = @balance
+    @account.push(@transaction)
   end
 
   def make_withdrawal(amount_withdrawed)
