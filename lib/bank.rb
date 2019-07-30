@@ -6,15 +6,18 @@ class Bank
     @transaction = {}
   end
 
-  def make_deposit(amount_deposited)
+  def make_deposit(date, amount_deposited)
     @balance = @balance + amount_deposited
-    @transaction = Hash.new 
+    @transaction = Hash.new
+    @transaction["date"] = date
     @transaction["deposit"] = amount_deposited
     @transaction["balance"] = @balance
     @account.push(@transaction)
   end
 
-  def make_withdrawal(amount_withdrawed)
+  def make_withdrawal(date, amount_withdrawed)
     @balance = @balance - amount_withdrawed
+    
+
   end
 end

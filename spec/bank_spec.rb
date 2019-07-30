@@ -7,20 +7,20 @@ describe Bank do
     end
     it 'adds the deposited amount to the balance at the date' do
       bank = Bank.new
-      bank.make_deposit(date, 100)
-      expect(bank.make_deposit(date, 200)).to eq([{"deposit"=>100, "balance"=>100}, {"deposit"=>200, "balance"=>300}])
+      bank.make_deposit("14/01/2012", 100)
+      expect(bank.make_deposit("13/01/2012", 200)).to eq([{"date" => "14/01/2012", "deposit"=>100, "balance"=>100}, {"date"=>"13/01/2012", "deposit"=>200, "balance"=>300}])
       expect(bank.balance).to eq(300)
     end
   end
   describe 'make_withdrawal' do
     it 'responds to method #make_withdrawal' do
-      expect(subject).to respond_to(:make_withdrawal).with(1).argument
+      expect(subject).to respond_to(:make_withdrawal).with(2).arguments
     end
     it 'deducts the withdrawn amount from the balance' do
       bank = Bank.new
-      subject.make_deposit(100)
-      subject.make_deposit(200)
-      subject.make_withdrawal(50)
+      bank.make_deposit("14/01/2012", 100)
+      bank.make_deposit("13/01/2012", 200)
+      expect(bank.make_withdrawal("15/01/2012", 50)).to eq([{"date" => "14/01/2012", "deposit"=>100, "balance"=>100}, {"date"=>"13/01/2012", "deposit"=>200, "balance"=>300}, {"date"=>"15/01/2012", "debit" => 50, "balance"=>250}])
       expect(subject.balance).to eq(250)
     end
   end
@@ -40,8 +40,8 @@ describe Bank do
     end
     it 'shows the account after the deposit has been made' do
       bank = Bank.new
-      bank.make_deposit(100)
-      expect(bank.account).to eq([{"deposit"=>100, "balance"=>100}])
+      bank.make_deposit("14/01/2012", 100)
+      expect(bank.account).to eq([{"date" => "14/01/2012", "deposit"=>100, "balance"=>100}])
     end
   end
   describe '#transaction' do
