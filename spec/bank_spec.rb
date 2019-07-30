@@ -42,4 +42,9 @@ describe Bank do
       expect(subject.account).to eq([{"balance" => 100}])
     end
   end
+  describe '#transaction' do
+    it 'responds to the method #transaction' do
+      expect(subject).to respond_to :transaction  
+    end
+  end
 end
