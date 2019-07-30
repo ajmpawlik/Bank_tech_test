@@ -3,12 +3,12 @@ require 'bank'
 describe Bank do
   describe '#make_deposit' do
     it 'responds to method #make_deposit' do
-      expect(subject).to respond_to(:make_deposit).with(1).argument
+      expect(subject).to respond_to(:make_deposit).with(2).arguments
     end
-    it 'adds the deposited amount to the balance' do
+    it 'adds the deposited amount to the balance at the date' do
       bank = Bank.new
-      bank.make_deposit(100)
-      expect(bank.make_deposit(200)).to eq([{"deposit"=>100, "balance"=>100}, {"deposit"=>200, "balance"=>300}])
+      bank.make_deposit(date, 100)
+      expect(bank.make_deposit(date, 200)).to eq([{"deposit"=>100, "balance"=>100}, {"deposit"=>200, "balance"=>300}])
       expect(bank.balance).to eq(300)
     end
   end
