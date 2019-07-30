@@ -41,3 +41,7 @@ I record a date of the operation.
 As a client of BANK,
 so that I could know how much money I have in the BANK,
 I check the balance of the account.
+
+As a client of BANK,
+so that I could know what transactions I have done,
+I print the statement. 

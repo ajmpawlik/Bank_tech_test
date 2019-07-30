@@ -17,7 +17,10 @@ class Bank
 
   def make_withdrawal(date, amount_withdrawed)
     @balance = @balance - amount_withdrawed
-    
-
+    @transaction = Hash.new
+    @transaction["date"] = date
+    @transaction["debit"] = amount_withdrawed
+    @transaction["balance"] = @balance
+    @account.push(@transaction)
   end
 end

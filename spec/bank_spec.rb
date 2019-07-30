@@ -21,7 +21,7 @@ describe Bank do
       bank.make_deposit("14/01/2012", 100)
       bank.make_deposit("13/01/2012", 200)
       expect(bank.make_withdrawal("15/01/2012", 50)).to eq([{"date" => "14/01/2012", "deposit"=>100, "balance"=>100}, {"date"=>"13/01/2012", "deposit"=>200, "balance"=>300}, {"date"=>"15/01/2012", "debit" => 50, "balance"=>250}])
-      expect(subject.balance).to eq(250)
+      expect(bank.balance).to eq(250)
     end
   end
   describe '#balance' do
@@ -47,6 +47,11 @@ describe Bank do
   describe '#transaction' do
     it 'responds to the method #transaction' do
       expect(subject).to respond_to :transaction
+    end
+  end
+  describe '#print statement' do
+    it 'prints a bank statement' do
+     expect(subject).to respond_to :print_statement
     end
   end
 end
