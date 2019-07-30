@@ -23,4 +23,8 @@ class Bank
     @transaction["balance"] = @balance
     @account.push(@transaction)
   end
+
+  def print_statement
+    100
+  end
 end
