@@ -23,6 +23,13 @@ describe Bank do
       expect(bank.make_withdrawal("15/01/2012", 50)).to eq([{"date" => "14/01/2012", "deposit"=>100, "balance"=>100}, {"date"=>"13/01/2012", "deposit"=>200, "balance"=>300}, {"date"=>"15/01/2012", "debit" => 50, "balance"=>250}])
       expect(bank.balance).to eq(250)
     end
+    it 'raises an error when the balance to go bellow 0 with the withdrawal' do
+      bank = Bank.new
+      bank.make_deposit("14/01/2012", 100)
+      bank.make_deposit("13/01/2012", 200)
+      expect {bank.make_withdrawal("15/01/2012", 350)}.to raise_error 'Insufficient funds'
+      expect(bank.balance).to eq(300)
+    end
   end
   describe '#balance' do
     it 'responds to method #balance' do
@@ -49,7 +56,7 @@ describe Bank do
       expect(subject).to respond_to :transaction
     end
   end
-  describe '#print_statement' do
+  describe 'printing statement' do
     it 'responds to method print_statement' do
       expect(subject).to respond_to :print_statement
     end
@@ -61,5 +68,12 @@ describe Bank do
       bank = Bank.new
       expect(bank.print_header).to eq("date || credit || debit || balance")
     end
+    it 'prints the transactions' do
+      bank = Bank.new
+      bank.make_deposit("14/01/2012", 500)
+      expect(bank.print_transactions).to eq ("14/01/2012"" ||"" ||"" 500"" ||"" 2500") # or maybe one string and in lib then w%(date....variables to strng)
+    end
   end
 end
+# add all types of tansactions to each transaction, as a default set a pipe? - no || at the end all except balance
+# ammend tests for that

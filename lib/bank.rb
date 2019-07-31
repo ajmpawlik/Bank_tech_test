@@ -16,6 +16,7 @@ class Bank
   end
 
   def make_withdrawal(date, amount_withdrawed)
+    fail 'Insufficient funds' if @balance <= amount_withdrawed
     @balance = @balance - amount_withdrawed
     @transaction = Hash.new
     @transaction["date"] = date
@@ -24,7 +25,11 @@ class Bank
     @account.push(@transaction)
   end
 
+  def print_header
+    "date || credit || debit || balance"
+  end
+
   def print_statement
-    100
+
   end
 end
