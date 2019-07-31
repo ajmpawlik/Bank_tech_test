@@ -1,6 +1,8 @@
+require_relative 'statement'
+
 class Bank
-  attr_reader :balance, :account, :transaction
-  def initialize
+  attr_reader :balance, :account, :transaction,
+  def initialize(attempt = Attempt.new)
     @balance = 0
     @account = []
     @transaction = {}
