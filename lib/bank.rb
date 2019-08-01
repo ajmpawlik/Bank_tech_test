@@ -1,7 +1,7 @@
 # require_relative 'statement'
 
 class Bank
-  attr_reader :balance, :account, :transaction
+  attr_reader :balance, :account, :transaction, :statement
   def initialize(statement = Statement.new)
     @balance = 0
     @account = []
@@ -27,7 +27,7 @@ class Bank
     @transaction["balance"] = @balance
     @account.push(@transaction)
   end
-  
+
   def print_statement
 
   end
