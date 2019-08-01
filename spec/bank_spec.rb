@@ -62,7 +62,7 @@ describe Bank do
       end
       it 'prints a bank statement' do
         bank = Bank.new
-        expect(bank.print_statement).to eq (100)
+        expect(bank.print_statement).to eq ("date || credit || debit || balance")
       end
   end
 end

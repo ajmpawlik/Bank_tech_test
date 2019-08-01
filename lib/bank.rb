@@ -1,4 +1,4 @@
-# require_relative 'statement'
+require_relative 'statement'
 
 class Bank
   attr_reader :balance, :account, :transaction, :statement
@@ -29,6 +29,6 @@ class Bank
   end
 
   def print_statement
-
+    @statement.print_header
   end
 end
