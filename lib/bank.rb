@@ -2,10 +2,11 @@
 
 class Bank
   attr_reader :balance, :account, :transaction
-  def initialize
+  def initialize(statement = Statement.new)
     @balance = 0
     @account = []
     @transaction = {}
+    @statement = statement
   end
 
   def make_deposit(date, amount_deposited)
@@ -26,11 +27,7 @@ class Bank
     @transaction["balance"] = @balance
     @account.push(@transaction)
   end
-
-  def print_header
-    "date || credit || debit || balance"
-  end
-
+  
   def print_statement
 
   end

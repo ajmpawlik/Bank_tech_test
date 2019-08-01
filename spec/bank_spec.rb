@@ -56,23 +56,14 @@ describe Bank do
       expect(subject).to respond_to :transaction
     end
   end
-  describe 'printing statement' do
-    it 'responds to method print_statement' do
-      expect(subject).to respond_to :print_statement
-    end
-    it 'prints a bank statement' do
-      bank = Bank.new
-      expect(bank.print_statement).to eq (100)
-    end
-    it 'prints the header of bank statement' do
-      bank = Bank.new
-      expect(bank.print_header).to eq("date || credit || debit || balance")
-    end
-    it 'prints the transactions' do
-      bank = Bank.new
-      bank.make_deposit("14/01/2012", 500)
-      expect(bank.print_transactions).to eq ("14/01/2012"" ||"" ||"" 500"" ||"" 2500") # or maybe one string and in lib then w%(date....variables to strng)
-    end
+  describe '#print_statement' do
+      it 'responds to method print_statement' do
+        expect(subject).to respond_to :print_statement
+      end
+      it 'prints a bank statement' do
+        bank = Bank.new
+        expect(bank.print_statement).to eq (100)
+      end
   end
 end
 # add all types of tansactions to each transaction, as a default set a pipe? - no || at the end all except balance
